@@ -1,8 +1,9 @@
-import PropTypes from "prop-types"
+ import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
 import MetaTags from "react-meta-tags"
 import "react-toastify/dist/ReactToastify.min.css"
-// import { Alert } from "reactstrap"
+
+import { useHistory } from "react-router"
 
 // material ui
 import CircularProgress from "@material-ui/core/CircularProgress"
@@ -53,6 +54,7 @@ const Register = props => {
     props.apiError("")
   }, [])
 
+  const navigate = useHistory()
   // yup validation
   const RegistrationSchema = yup.object().shape({
     userName: yup
@@ -94,6 +96,7 @@ const Register = props => {
         designation: values.designation,
       }
       toast.success("Sign up successfully")
+      // localStorage.setItem("username",userName)
       resetForm()
       return user
     },
@@ -150,20 +153,8 @@ const Register = props => {
                 <div className="p-3">
                   <FormikProvider value={formik} className="mt-4">
                     <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
-                      {/* {props.user && props.user ? (
-                        <Alert color="success">
-                          Register User Successfully
-                        </Alert>
-                      ) : null}
-
-                      {props.registrationError &&
-                        props.registrationError ? (
-                          <Alert color="danger">
-                          {props.registrationError}
-                          </Alert>
-                        ) : null} */}
-
                       <TextField
+                        required
                         fullWidth
                         autoComplete="userName"
                         className="mb-3"
@@ -176,6 +167,7 @@ const Register = props => {
                         helperText={touched.userName && errors.userName}
                       />
                       <TextField
+                        required
                         fullWidth
                         autoComplete="userEmail"
                         className="mb-3"
@@ -189,6 +181,7 @@ const Register = props => {
                       />
 
                       <TextField
+                        required
                         fullWidth
                         autoComplete="designation"
                         className="mb-3"
@@ -204,6 +197,7 @@ const Register = props => {
                       />
 
                       <TextField
+                        required
                         fullWidth
                         autoComplete="phone"
                         className="mb-3"
@@ -216,6 +210,7 @@ const Register = props => {
                         helperText={touched.phone && errors.phone}
                       />
                       <TextField
+                        required
                         fullWidth
                         className="mb-3"
                         autoComplete="password"
@@ -249,10 +244,11 @@ const Register = props => {
                         color="primary"
                         variant="contained"
                         className="mt-2"
+                        onClick={() => {navigate.push("/dashboard")}}
                       >
-                        {isSubmitting ? (
+                        {/* {isSubmitting ? (
                           <CircularProgress color="inherit" size={20} />
-                        ) : null}
+                        ) : null} */}
                         Sign In
                       </Button>
 
@@ -273,11 +269,10 @@ const Register = props => {
             </Card>
             <div className="mt-5 text-center">
               <p>
-                Already have an account ?{" "}
+                Already have an account ?
                 <Link to="/login" className="fw-medium text-primary">
-                  {" "}
                   Sign In
-                </Link>{" "}
+                </Link>
               </p>
               {/* <p>
                 © {new Date().getFullYear()} Veltrix. Crafted with{" "}

@@ -60,7 +60,7 @@ const UserProfile = props => {
     <React.Fragment>
       <div className="page-content">
         <MetaTags>
-          <title>Profile | Veltrix - Responsive Bootstrap 5 Admin Dashboard</title>
+          <title>Profile</title>
         </MetaTags>
         <Container fluid>
           {/* Render Breadcrumb */}

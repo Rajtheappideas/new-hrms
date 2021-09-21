@@ -113,6 +113,7 @@ import PagesGallery from "../pages/Utility/PagesGallery";
 import PagesDirectory from "../pages/Utility/PagesDirectory";
 
 const userRoutes = [
+  // { path: "/dashboard", component: (() => <Dashboard authorized={false} />) },
   { path: "/dashboard", component: Dashboard },
 
   // //calendar

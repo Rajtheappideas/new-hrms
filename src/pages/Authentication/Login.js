@@ -42,10 +42,10 @@ import { toast, ToastContainer } from "react-toastify"
 
 const Login = props => {
   console.log(props)
-  const [user, setUser] = useState({
-    userEmail: "admin@gmail.com",
-    password: 12345,
-  })
+  // const [user, setUser] = useState({
+  //   userEmail: "admin@gmail.com",
+  //   password: 12345,
+  // })
   const [showPassword, setshowPassword] = useState(false)
 
   const navigate = useHistory()
@@ -144,6 +144,7 @@ const Login = props => {
                         className="mb-3"
                         id="email"
                         name="email"
+                        required
                         // value={user.uerEmail}
                         label="Email"
                         type="email"
@@ -154,6 +155,7 @@ const Login = props => {
 
                       <TextField
                         fullWidth
+                        required
                         className="mb-3"
                         // value={user.password}
                         autoComplete="password"
@@ -188,6 +190,8 @@ const Login = props => {
                         color="primary"
                         variant="contained"
                         className="mt-2"
+                        // onClick=
+                        // {() => {navigate.push("/dashboard")}}
                       >
                         {/* {isSubmitting ? (
                           <CircularProgress color="inherit" size={20} />

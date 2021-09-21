@@ -16,6 +16,7 @@ import {
 } from "reactstrap"
 import { Link } from "react-router-dom"
 
+import { useHistory } from 'react-router';
 // Custom Scrollbar
 import SimpleBar from "simplebar-react";
 
@@ -44,12 +45,17 @@ import "chartist/dist/scss/chartist.scss";
 
 //i18n
 import { withTranslation } from "react-i18next"
+import { use } from 'echarts';
 
-const Dashboard = props => {
+const Dashboard = ({authorized}) => {
   const [menu, setMenu] = useState(false)
   const toggle = () => {
     setMenu(!menu)
   }
+  // const navigate = useHistory()
+  // if(!authorized){
+  //   return navigate.push("/login")
+  // }
   return (
     <React.Fragment>
       <div className="page-content">
