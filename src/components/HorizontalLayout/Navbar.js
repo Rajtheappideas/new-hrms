@@ -89,7 +89,60 @@ const Navbar = props => {
 
                 </li>
 
+
                 <li className="nav-item dropdown mega-dropdown">
+                  <Link
+                    to="/#"
+                    className="nav-link dropdown-toggle arrow-none"
+                    onClick={e => {
+                      e.preventDefault()
+                      setauth(!auth)
+                    }}
+                  >
+                    <i className="ti-archive me-2"></i>{" "}
+                    {props.t("Authentication")}
+                  </Link>
+                  <div
+                    className={classname("dropdown-menu mega-dropdown-menu px-2 dropdown-mega-menu-lg", { show: auth })}
+                  >
+                    <div className="row">
+                      <div className="col-lg-6">
+                        <div>
+                          <Link to="pages-login" className="dropdown-item">
+                            {props.t("Login")}
+                          </Link>
+                          <Link to="pages-register" className="dropdown-item">
+                            {props.t("Register")}
+                          </Link>
+                          <Link to="page-recoverpw" className="dropdown-item">
+                            {props.t("Recover Password")}
+                          </Link>
+                          <Link to="auth-lock-screen" className="dropdown-item">
+                            {props.t("Lock Screen")}
+                          </Link>
+                        </div>
+                      </div>
+                      <div className="col-lg-6">
+                        <div>
+                          <Link to="pages-login-2" className="dropdown-item">
+                            {props.t("Login 2")}
+                          </Link>
+                          <Link to="pages-register-2" className="dropdown-item">
+                            {props.t("Register 2")}
+                          </Link>
+                          <Link to="page-recoverpw-2" className="dropdown-item">
+                            {props.t("Recover Password 2")}
+                          </Link>
+                          <Link to="auth-lock-screen-2" className="dropdown-item">
+                            {props.t("Lock Screen 2")}
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                {/* <li className="nav-item dropdown mega-dropdown">
                   <Link
                     to="/#"
                     onClick={e => {
@@ -185,8 +238,8 @@ const Navbar = props => {
                       </Col>
                     </Row>
                   </div>
-                </li>
-
+                </li> */}
+{/* 
                 <li className="nav-item dropdown">
                   <Link
                     to="/#"
@@ -404,8 +457,8 @@ const Navbar = props => {
                       </div>
                     </div>
                   </div>
-                </li>
-
+                </li> */}
+{/* 
                 <li className="nav-item dropdown mega-dropdown">
                   <Link
                     to="/#"
@@ -456,9 +509,9 @@ const Navbar = props => {
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> */}
 
-                <li className="nav-item dropdown">
+                {/* <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle arrow-none"
                     to="#"
@@ -503,9 +556,9 @@ const Navbar = props => {
 
                   </div>
 
-                </li>
+                </li> */}
 
-                <li className="nav-item dropdown">
+                {/* <li className="nav-item dropdown">
                   <Link className="nav-link dropdown-toggle arrow-none" to="#" id="topnav-emailtemplates" role="button"
                     onClick={e => {
                       e.preventDefault()
@@ -536,7 +589,7 @@ const Navbar = props => {
                       {props.t("Billing Email")}
                     </Link>
                   </div>
-                </li>
+                </li> */}
 
               </ul>
             </Collapse>
