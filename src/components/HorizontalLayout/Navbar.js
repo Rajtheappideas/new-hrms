@@ -21,7 +21,7 @@ const Navbar = props => {
   const [icon, seticon] = useState(false)
   const [map, setmap] = useState(false)
   const [extra, setextra] = useState(false)
-  const [auth, setauth] = useState(false)
+  const [report , setreport] = useState(false)
 
   useEffect(() => {
     var matchingMenuItem = null
@@ -90,26 +90,26 @@ const Navbar = props => {
                 </li>
 
 
-                <li className="nav-item dropdown mega-dropdown">
+                <li className="nav-item dropdown">
                   <Link
                     to="/#"
                     className="nav-link dropdown-toggle arrow-none"
                     onClick={e => {
                       e.preventDefault()
-                      setauth(!auth)
+                      setreport(!report)
                     }}
                   >
-                    <i className="ti-archive me-2"></i>{" "}
-                    {props.t("Authentication")}
+                    <i className="ti-file me-2"></i>{" "}
+                    {props.t("Send Daily Report")}
                   </Link>
-                  <div
+                  {/* <div
                     className={classname("dropdown-menu mega-dropdown-menu px-2 dropdown-mega-menu-lg", { show: auth })}
                   >
                     <div className="row">
                       <div className="col-lg-6">
                         <div>
                           <Link to="pages-login" className="dropdown-item">
-                            {props.t("Login")}
+                            {props.t("developer")}
                           </Link>
                           <Link to="pages-register" className="dropdown-item">
                             {props.t("Register")}
@@ -122,24 +122,9 @@ const Navbar = props => {
                           </Link>
                         </div>
                       </div>
-                      <div className="col-lg-6">
-                        <div>
-                          <Link to="pages-login-2" className="dropdown-item">
-                            {props.t("Login 2")}
-                          </Link>
-                          <Link to="pages-register-2" className="dropdown-item">
-                            {props.t("Register 2")}
-                          </Link>
-                          <Link to="page-recoverpw-2" className="dropdown-item">
-                            {props.t("Recover Password 2")}
-                          </Link>
-                          <Link to="auth-lock-screen-2" className="dropdown-item">
-                            {props.t("Lock Screen 2")}
-                          </Link>
-                        </div>
-                      </div>
+                      
                     </div>
-                  </div>
+                  </div> */}
                 </li>
 
                 {/* <li className="nav-item dropdown mega-dropdown">
