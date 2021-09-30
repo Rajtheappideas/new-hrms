@@ -1,10 +1,10 @@
- import PropTypes from "prop-types"
+import PropTypes from "prop-types"
 import React, { useState, useEffect } from "react"
 import MetaTags from "react-meta-tags"
 import "react-toastify/dist/ReactToastify.min.css"
 
 import { useHistory } from "react-router"
-
+import axios from "axios"
 // material ui
 import CircularProgress from "@material-ui/core/CircularProgress"
 import {
@@ -46,23 +46,16 @@ const phoneRegExp =
 
 const Register = props => {
   const [showPassword, setshowPassword] = useState(false)
-  // // handleValidSubmit
-  // const handleValidSubmit = (event, values) => {
-  //   props.registerUser(values)
-  // }
-  useEffect(() => {
-    props.apiError("")
-  }, [])
-
+  
   const navigate = useHistory()
   // yup validation
   const RegistrationSchema = yup.object().shape({
-    userName: yup
+    username: yup
       .string()
-      .required("UserName is Required!")
+      .required("username is Required!")
       .min(2, "Too short!")
       .max(50, "Too Long!"),
-    userEmail: yup.string().email().required("Email is Required!"),
+    email: yup.string().email().required("Email is Required!"),
     designation: yup.string().required("Designation is Required!"),
     phone: yup
       .string()
@@ -80,24 +73,51 @@ const Register = props => {
   // formik values
   const formik = useFormik({
     initialValues: {
-      userName: "",
-      userEmail: "",
+      username: "",
+      email: "",
       password: "",
       designation: "",
       phone: "",
     },
     validationSchema: RegistrationSchema,
-    onSubmit: values => {
+    onSubmit: async values => {
       const user = {
-        userEmail: values.userEmail,
+        email: values.email,
         password: values.password,
-        userName: values.userName,
+        username: values.username,
         phone: values.phone,
         designation: values.designation,
       }
+      // ---------for heroku------------
+      
+      // await fetch("https://hrms-tai.herokuapp.com/register", {
+      //   method: "POST",
+      //   body: JSON.stringify(user),
+      //   headers: {
+      //     "access-control-allow-origin" : "*",
+      //     "Content-type": "application/json;charset=UTF-8",
+      //   },
+      // })
+      //   .then(response => {
+      //     console.log(response.json())
+      //   })
+      //   .catch(err => console.log(err))
+      //--------------------------fro json-----------------
+      await fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then(response => {
+          console.log("at jasonplacehplder", response.json())
+        })
+
+        .catch(err => console.log(err))
       toast.success("Sign up successfully")
-      // localStorage.setItem("username",userName)
       resetForm()
+      // console.log(user)
       return user
     },
   })
@@ -156,28 +176,28 @@ const Register = props => {
                       <TextField
                         required
                         fullWidth
-                        autoComplete="userName"
+                        autoComplete="username"
                         className="mb-3"
                         id="username"
                         name="username"
-                        label="UserName"
+                        label="username"
                         type="text"
-                        {...getFieldProps("userName")}
-                        error={Boolean(touched.userName && errors.userName)}
-                        helperText={touched.userName && errors.userName}
+                        {...getFieldProps("username")}
+                        error={Boolean(touched.username && errors.username)}
+                        helperText={touched.username && errors.username}
                       />
                       <TextField
                         required
                         fullWidth
-                        autoComplete="userEmail"
+                        autoComplete="email"
                         className="mb-3"
                         id="email"
                         name="email"
                         label="Email"
                         type="email"
-                        {...getFieldProps("userEmail")}
-                        error={Boolean(touched.userEmail && errors.userEmail)}
-                        helperText={touched.userEmail && errors.userEmail}
+                        {...getFieldProps("email")}
+                        error={Boolean(touched.email && errors.email)}
+                        helperText={touched.email && errors.email}
                       />
 
                       <TextField
@@ -244,7 +264,7 @@ const Register = props => {
                         color="primary"
                         variant="contained"
                         className="mt-2"
-                        onClick={() => {navigate.push("/dashboard")}}
+                        // onClick={handlePostData}
                       >
                         {/* {isSubmitting ? (
                           <CircularProgress color="inherit" size={20} />

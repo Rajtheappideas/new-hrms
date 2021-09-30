@@ -55,7 +55,7 @@ const Header = props => {
 
   return (
     <React.Fragment>
-      <header id="page-topbar">
+      <header id="page-topbar mb-5">
         <div className="navbar-header">
           <div className="d-flex">
             <div className="navbar-brand-box">

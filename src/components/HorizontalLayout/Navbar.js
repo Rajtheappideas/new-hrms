@@ -10,6 +10,7 @@ import { withTranslation } from "react-i18next"
 import { connect } from "react-redux"
 
 const Navbar = props => {
+  console.log(props)
   const [ui, setui] = useState(false)
 
   const [email, setemail] = useState(false)
@@ -21,7 +22,7 @@ const Navbar = props => {
   const [icon, seticon] = useState(false)
   const [map, setmap] = useState(false)
   const [extra, setextra] = useState(false)
-  const [report , setreport] = useState(false)
+  const [report, setreport] = useState(false)
 
   useEffect(() => {
     var matchingMenuItem = null
@@ -79,28 +80,16 @@ const Navbar = props => {
             >
               <ul className="navbar-nav">
                 <li className="nav-item">
-                  <Link
-                    className="nav-link"
-                    to="dashboard"
-                  >
+                  <Link className="nav-link" to="dashboard">
                     <i className="ti-home me-2" />
                     {props.t("Dashboard")} {props.menuOpen}
                   </Link>
-
                 </li>
 
-
-                <li className="nav-item dropdown">
-                  <Link
-                    to="/#"
-                    className="nav-link dropdown-toggle arrow-none"
-                    onClick={e => {
-                      e.preventDefault()
-                      setreport(!report)
-                    }}
-                  >
+                <li className="nav-item">
+                  <Link to="reports" className="nav-link">
                     <i className="ti-file me-2"></i>{" "}
-                    {props.t("Send Daily Report")}
+                    {props.t("Send Daily Report")} {props.menuOpen}
                   </Link>
                   {/* <div
                     className={classname("dropdown-menu mega-dropdown-menu px-2 dropdown-mega-menu-lg", { show: auth })}
@@ -224,7 +213,7 @@ const Navbar = props => {
                     </Row>
                   </div>
                 </li> */}
-{/* 
+                {/* 
                 <li className="nav-item dropdown">
                   <Link
                     to="/#"
@@ -443,7 +432,7 @@ const Navbar = props => {
                     </div>
                   </div>
                 </li> */}
-{/* 
+                {/* 
                 <li className="nav-item dropdown mega-dropdown">
                   <Link
                     to="/#"
@@ -575,7 +564,6 @@ const Navbar = props => {
                     </Link>
                   </div>
                 </li> */}
-
               </ul>
             </Collapse>
           </nav>

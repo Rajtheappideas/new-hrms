@@ -70,6 +70,17 @@ const Login = props => {
         userEmail: values.userEmail,
         password: values.password,
       }
+      fetch("https://hrms-tai.herokuapp.com/login", {
+        method: "POST",
+        body: JSON.stringify(user),
+        headers: {
+          "Content-type": "application/json",
+        },
+      })
+        .then(response => {
+          console.log(response.json())
+        })
+        .catch(err => console.log(err))
       resetForm()
       return user
     },

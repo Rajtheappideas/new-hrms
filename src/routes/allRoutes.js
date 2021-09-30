@@ -112,6 +112,8 @@ import Pages500 from "../pages/Utility/pages-500"
 import PagesGallery from "../pages/Utility/PagesGallery";
 import PagesDirectory from "../pages/Utility/PagesDirectory";
 
+// reports 
+import Developer from '../pages/user/reports/Developer'
 const userRoutes = [
   // { path: "/dashboard", component: (() => <Dashboard authorized={false} />) },
   { path: "/dashboard", component: Dashboard },
@@ -198,6 +200,9 @@ const userRoutes = [
   { path: "/pages-faqs", component: PagesFaqs },
   { path: "/pages-pricing", component: PagesPricing },
   { path: "/pages-gallery", component: PagesGallery },
+
+  // reports
+  {path: '/reports', component: Developer},
 
   // this route should be at the end of all other routes
   { path: "/", exact: true, component: () => <Redirect to="/dashboard" /> },

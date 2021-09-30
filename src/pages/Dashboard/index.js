@@ -71,7 +71,7 @@ const Dashboard = ({authorized}) => {
                   <li className="breadcrumb-item active">Welcome to The App Ideas Dashboard</li>
                 </ol>
               </Col>
-
+{/* 
               <Col md="4">
                 <div className="float-end d-none d-md-block">
                   <Dropdown isOpen={menu} toggle={toggle}>
@@ -88,9 +88,12 @@ const Dashboard = ({authorized}) => {
                   </Dropdown>
                 </div>
               </Col>
+            */}
             </Row>
           </div>
-          <Row>
+
+          {/* ----------------------charts/cards-------------------- */}
+          {/* <Row>
             <Col xl={3} md={6}>
               <Card className="mini-stat bg-primary text-white">
                 <CardBody>
@@ -209,9 +212,10 @@ const Dashboard = ({authorized}) => {
                 </CardBody>
               </Card>
             </Col>
-          </Row>
+          </Row> */}
+          {/*---------------------- --------------------graphs------------- */}
 
-          <Row>
+          {/* <Row>
             <Col xl={9}>
               <Card>
                 <CardBody>
@@ -307,9 +311,9 @@ const Dashboard = ({authorized}) => {
                 </CardBody>
               </Card>
             </Col>
-          </Row>
-
-          <Row>
+          </Row> */}
+{/* ----------------------------rounded charts------------------------------ */}
+          {/* <Row>
             <Col xl={3}>
               <Card>
                 <CardBody>
@@ -484,9 +488,11 @@ const Dashboard = ({authorized}) => {
                 </Col>
               </Row>
             </Col>
-          </Row>
+          </Row> */}
 
-          <Row>
+ {/* ---------------------------user list-----------------          */}
+
+          {/* <Row>
             <Col xl={8}>
               <Card>
                 <CardBody>
@@ -800,6 +806,7 @@ const Dashboard = ({authorized}) => {
               </Card>
             </Col>
           </Row>
+        */}
         </Container>
       </div>
 
